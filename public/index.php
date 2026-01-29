@@ -48,7 +48,12 @@ function require_auth($path)
 }
 
 $router->get('/', function () {
-    header('Location: /dashboard');
+    if (isset($_COOKIE['authToken']) && $_COOKIE['authToken'] !== '') {
+        header('Location: /dashboard');
+        exit;
+    }
+
+    header('Location: /login');
     exit;
 });
 
@@ -56,8 +61,18 @@ $router->get('/login', function () {
     render_page('login', array('title' => 'Вход — Easy склад', 'layout' => 'auth', 'bodyPage' => 'login'));
 });
 
+$router->get('/login.php', function () {
+    header('Location: /login');
+    exit;
+});
+
 $router->get('/register', function () {
     render_page('register', array('title' => 'Регистрация — Easy склад', 'layout' => 'auth', 'bodyPage' => 'register'));
+});
+
+$router->get('/register.php', function () {
+    header('Location: /register');
+    exit;
 });
 
 $router->get('/dashboard', function () {
