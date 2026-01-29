@@ -1,0 +1,255 @@
+.app-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 24px;
+    background: var(--card);
+    border-bottom: 1px solid var(--border);
+    z-index: 100;
+}
+
+.logo {
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.logo span {
+    color: var(--accent);
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+
+.header-selects {
+    display: flex;
+    gap: 12px;
+}
+
+.header-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.theme-toggle {
+    background: transparent;
+    border: 1px solid var(--border);
+    padding: 8px 10px;
+    border-radius: 12px;
+    cursor: pointer;
+}
+
+.profile-menu {
+    position: relative;
+}
+
+.profile-dropdown {
+    position: absolute;
+    top: calc(100% + 8px);
+    right: 0;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    display: none;
+    min-width: 160px;
+    z-index: 30;
+}
+
+.profile-dropdown a {
+    display: block;
+    padding: 10px 12px;
+}
+
+.profile-menu.open .profile-dropdown {
+    display: block;
+}
+
+.app-sidebar {
+    position: fixed;
+    top: 72px;
+    left: 0;
+    width: 220px;
+    bottom: 0;
+    padding: 20px;
+    background: var(--card);
+    border-right: 1px solid var(--border);
+}
+
+.sidebar-nav {
+    display: grid;
+    gap: 8px;
+}
+
+.sidebar-nav a {
+    padding: 10px 12px;
+    border-radius: 12px;
+    transition: all 0.18s ease;
+}
+
+.sidebar-nav a.active {
+    background: rgba(34, 197, 94, 0.12);
+    color: var(--accent);
+}
+
+.breadcrumbs {
+    margin-top: 72px;
+    margin-left: 220px;
+    padding: 12px 24px;
+    font-size: 14px;
+    color: rgba(100, 116, 139, 0.9);
+}
+
+.app-main {
+    margin-left: 220px;
+    padding: 24px;
+    padding-top: 0;
+    margin-top: 8px;
+}
+
+.page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px 0;
+}
+
+.auth-layout {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 40px;
+}
+
+.auth-card {
+    width: 100%;
+    max-width: 420px;
+    background: var(--card);
+    padding: 32px;
+    border-radius: 16px;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border);
+}
+
+.auth-footer {
+    margin-top: 16px;
+    text-align: center;
+}
+
+.filters {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.pos-layout {
+    display: grid;
+    grid-template-columns: 1.1fr 1.4fr;
+    gap: 20px;
+}
+
+.pos-shortcuts {
+    font-size: 12px;
+    color: rgba(100, 116, 139, 0.9);
+}
+
+.pos-receipt .list,
+.pos-search .list {
+    margin-top: 16px;
+    display: grid;
+    gap: 12px;
+}
+
+.pos-item,
+.result-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 12px;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+}
+
+.item-actions {
+    display: flex;
+    gap: 6px;
+}
+
+.pos-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 16px;
+}
+
+.income-toolbar {
+    display: flex;
+    gap: 12px;
+    margin: 16px 0;
+}
+
+.income-footer {
+    margin-top: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.list-empty {
+    padding: 20px;
+    text-align: center;
+    border: 1px dashed var(--border);
+    border-radius: 12px;
+}
+
+@media (max-width: 1024px) {
+    .app-sidebar {
+        width: 180px;
+    }
+    .breadcrumbs,
+    .app-main {
+        margin-left: 180px;
+    }
+    .pos-layout {
+        grid-template-columns: 1fr;
+    }
+    .grid-4 {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 720px) {
+    .app-header {
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+    .app-sidebar {
+        position: static;
+        width: auto;
+        border-right: none;
+        display: flex;
+        overflow-x: auto;
+    }
+    .breadcrumbs,
+    .app-main {
+        margin-left: 0;
+    }
+    .grid-2,
+    .grid-3,
+    .grid-4 {
+        grid-template-columns: 1fr;
+    }
+}
